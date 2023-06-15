@@ -1,0 +1,30 @@
+.split {
+    margin-block: 20px;
+}
+
+.small-split {
+    margin-block: 10px;
+}
+
+.text-mid {
+    font-size: 100px;
+}
+
+.split-right {
+    margin-right: 10px;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

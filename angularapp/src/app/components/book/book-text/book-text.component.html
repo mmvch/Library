@@ -1,0 +1,13 @@
+<div *ngIf="text?.pages" style="margin-top: 100px;">
+    <pagination-controls style="display: flex; justify-content: center;"
+        (pageChange)="handlePageChange($event)"></pagination-controls>
+
+    <div *ngFor="let page of text?.pages || [] | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+        <div *ngFor="let paragraph of page">
+            <p class="parag">{{paragraph}}</p>
+        </div>
+    </div>
+
+    <pagination-controls style="display: flex; justify-content: center;"
+        (pageChange)="handlePageChange($event)"></pagination-controls>
+</div>

@@ -1,0 +1,15 @@
+<div class="image">
+    <img class="image" [src]="environment.imagesUrl + (book?.image || 'default_book_image.bmp')">
+</div>
+<div class="content">
+    <div class="header hide">{{ book?.name }}</div>
+    <div class="description hide">{{ book?.description }}</div>
+</div>
+<div class="extra content">
+    <span class="floated" *ngIf="isAuthor(book?.user?.id)">
+        <i class="star icon active"></i>
+    </span>
+    <span class="right floated">
+        {{ book?.creationDate | date: 'short' }}
+    </span>
+</div>

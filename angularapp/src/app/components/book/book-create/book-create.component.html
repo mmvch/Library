@@ -1,0 +1,33 @@
+<div class="mid">
+    <div *ngIf="book" class="ui form huge" style="width: 50%; ">
+        <h2 class="mid">{{ book.name }}</h2>
+        <div class="split">
+            <div class="small-split">Name:</div>
+            <input [(ngModel)]="book.name" placeholder="Name" />
+        </div>
+        <div class="split">
+            <div class="small-split">Description:</div>
+            <textarea rows="2" [(ngModel)]="book.description" placeholder="Description"></textarea>
+        </div>
+        <div class="ui middle grid container mid">
+            <div class="ui fluid segment">
+                <input accept=".png, .jpg, .jpe, .bmp" type="file" (change)="selectImageFile($event)" class="inputfile"
+                    id="imageFile" />
+                <label for="imageFile" class="ui large olive right floated button">
+                    <i class="ui upload icon"></i>
+                    Upload image
+                </label>
+
+                <input accept=".txt" type="file" (change)="selectTextFile($event)" class="inputfile" id="textFile" />
+                <label for="textFile" class="ui large yellow right floated button">
+                    <i class="ui upload icon"></i>
+                    Upload text
+                </label>
+            </div>
+        </div>
+        <div class="split mid">
+            <button class="huge ui teal button" (click)="createBook(book)">Create</button>
+            <button class="huge ui teal button" (click)="return()">Cancel</button>
+        </div>
+    </div>
+</div>

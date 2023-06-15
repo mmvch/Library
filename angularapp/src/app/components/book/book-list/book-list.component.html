@@ -1,0 +1,37 @@
+<div>
+    <div class="ui search right">
+        <span class="split-inline" *ngIf="this.name">
+            <a class="ui large label">
+                {{this.name}}
+                <i class="delete icon" (click)="clear()"></i>
+            </a>
+        </span>
+
+        <span class="ui icon input split-inline">
+            <input [(ngModel)]="name" class="prompt" type="text" placeholder="Search books..." (blur)="search()"
+                (keyup.enter)="search()">
+            <i class="search icon"></i>
+        </span>
+    </div>
+
+    <div class="ui five link cards split-block">
+        <app-book-card class="blue card" *ngFor="let book of books" [book]="book"
+            [routerLink]="['book', book?.id]"></app-book-card>
+    </div>
+
+    <div class="split-block mid" *ngIf="pageCount > 1">
+        <div class="ui pagination menu">
+            <div *ngFor="let pageNumber of paginate()">
+                <a class="active item" *ngIf="pageNumber == this.currentPage" (click)="getPage(pageNumber)">
+                    {{pageNumber}}
+                </a>
+                <a class="disabled item" *ngIf="pageNumber === 0">
+                    ...
+                </a>
+                <a class="item" *ngIf="pageNumber != 0 && pageNumber != this.currentPage" (click)="getPage(pageNumber)">
+                    {{pageNumber}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

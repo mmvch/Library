@@ -1,0 +1,12 @@
+.hide {
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.hide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 70%, white);
+}

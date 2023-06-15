@@ -1,0 +1,30 @@
+<div class="container" *ngIf="book">
+    <div>
+        <img class="image info" [src]="environment.imagesUrl + (book.image || 'default_book_image.bmp')">
+    </div>
+    <div class="info">
+        <div class="container-top">
+            <h1>{{ book.name }}</h1>
+            <h2>{{ book.description }}</h2>
+            <div class="container">
+                <div class="info">
+                    Creation Date:
+                    <h3>{{ book.creationDate | date: 'short' }}</h3>
+                </div>
+                <div class="info" *ngIf="book?.user">
+                    Author:
+                    <h3>{{ book.user?.login }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="container-bot">
+            <div class="ui large buttons" *ngIf="book.id && isAuthorOrAdmin(book.user?.id)">
+                <button class="ui button" [routerLink]="['edit']">Edit</button>
+                <div class="or"></div>
+                <button class="ui button" (click)="deleteBook(book.id)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-book-text *ngIf="book && book.id" [id]="book.id"></app-book-text>

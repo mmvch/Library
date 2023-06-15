@@ -1,0 +1,24 @@
+.image {
+    height: 350px;
+    width: 350px;
+}
+
+.container {
+    display: flex;
+}
+
+.info {
+    padding-right: 30px;
+}
+
+.container-top {
+    height: 50%;
+}
+
+.container-bot {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50%;
+}

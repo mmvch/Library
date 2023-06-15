@@ -1,0 +1,21 @@
+<header class="ui fixed inverted menu">
+    <div class="ui container">
+        <a href="" class="header item">
+            <img class="logo" src="../favicon.ico">
+            <div style="margin-inline: 15px;">Library</div>
+        </a>
+        <a class="ui header item" *ngIf="isAuthorized" [routerLink]="['book/create']">Create New Book</a>
+        <a class="ui header item right" *ngIf="!isAuthorized" [routerLink]="['auth/login']">Login</a>
+        <a class="ui header item" *ngIf="!isAuthorized" [routerLink]="['auth/register']">Register</a>
+        <div class="ui header item right" *ngIf="isAuthorized">{{userName}}</div>
+        <a class="ui header item" *ngIf="isAuthorized" (click)="logout()">Logout</a>
+    </div>
+</header>
+
+<main class="ui container main">
+    <router-outlet></router-outlet>
+</main>
+
+<footer class="ui inverted vertical segment">
+    <div class="ui inverted container divider"></div>
+</footer>
